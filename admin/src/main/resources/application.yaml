@@ -1,0 +1,30 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: short-link-admin
+  datasource:
+    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+    url: jdbc:shardingsphere:classpath:shardingsphere-config-${database.env:dev}.yaml
+  data:
+    redis:
+      host: 8.130.122.177
+      port: 6379
+      password: h15079452428
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 8.130.122.177:8848
+        #server-addr: 127.0.0.1:8848
+        username: nacos
+        #password: nacos
+        password: h15079452428
+
+short-link:
+  group:
+    max-num: 20
+  flow-limit:
+    enable: true
+    time-window: 1
+    max-access-count: 20
